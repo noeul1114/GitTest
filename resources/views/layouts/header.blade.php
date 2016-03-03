@@ -12,7 +12,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-                <li><a class="navbar-brand" href="http://54.238.170.138">Home</a></li>
+                <li><a class="navbar-brand" href="/home">Home</a></li>
                 <li><a class="navbar-brand" href="/sayit">About</a></li>
                 <li><a class="navbar-brand" href="/todayComment">하루 두마디</a></li>
             </ul>
