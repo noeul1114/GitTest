@@ -17,6 +17,9 @@
             <th>제  목</th>
             <th>작성자</th>
             <th>투표수</th>
+            <th>up</th>
+            <th>down</th>
+            <th>neutral</th>
             <th>작성일자</th>
           </tr>
         </thead>
@@ -25,7 +28,10 @@
           <tr>
             <td>{{ $bdata['headline'] }}</td>
             <td>{{ $bdata['writer'] }}</td>
-            <td>{{ $bdata['vote_id'] }}</td>
+            <td>{{ $bdata['up'] + $bdata['down'] + $bdata['neutral'] }}</td>
+            <td>{{ $bdata['up'] }}</td>
+            <td>{{ $bdata['down'] }}</td>
+            <td>{{ $bdata['neutral'] }}</td>
             <td>{{ $bdata['created_at'] }}</td>
           </tr>
           @endforeach
