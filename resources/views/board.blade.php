@@ -20,6 +20,7 @@
             <th>up</th>
             <th>down</th>
             <th>neutral</th>
+            <th>추천</th>
             <th>작성일자</th>
           </tr>
         </thead>
@@ -32,6 +33,15 @@
             <td>{{ $bdata['up'] }}</td>
             <td>{{ $bdata['down'] }}</td>
             <td>{{ $bdata['neutral'] }}</td>
+            <td>
+              <form action="{{ route('voteBoard', $bdata->id) }}" method="POST" class="form-horizontal">
+              {{ csrf_field() }}
+              <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-default">
+                  <i class="fa fa-plus"></i> 추천
+                </button>
+              </div>
+            </td>
             <td>{{ $bdata['created_at'] }}</td>
           </tr>
           @endforeach

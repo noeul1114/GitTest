@@ -25,6 +25,7 @@
               <td>{{ $bdata['vote'] }}</td>
               <td>
                 <form action="{{ route('voteComment', $bdata->id) }}" method="POST" class="form-horizontal">
+                {{ csrf_field() }}
                 <div class="col-sm-offset-3 col-sm-6">
                   <button type="submit" class="btn btn-default">
                       <i class="fa fa-plus"></i> 추천

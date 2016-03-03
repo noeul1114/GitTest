@@ -36,6 +36,10 @@ Route::post('postBoard', [
   'as' => 'postBoard',
   'uses' => 'PostController@postBoard'
 ]);
+Route::post('voteBoard/{id}', [
+  'as' => 'voteBoard',
+  'uses' => 'PostController@voteBoard'
+]);
 
 // Authentication Routes...
 Route::get('auth/login', [

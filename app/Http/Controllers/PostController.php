@@ -71,9 +71,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function voteBoard($id)
     {
-        //
+        Board::where('id', $id)
+                    ->increment('up');
+
+        return redirect()->route('boardView');
     }
 
     /**
