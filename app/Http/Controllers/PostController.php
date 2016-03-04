@@ -17,7 +17,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($id = 'a')
     {
       $ma = Board::count();
       $md = Board::max('vote_id');
