@@ -17,24 +17,27 @@
             <th>제  목</th>
             <th>작성자</th>
             <th>투표수</th>
-            <th>up</th>
-            <th>down</th>
-            <th>neutral</th>
+            <th>Vote</th>
+            @if(Auth::check())
             <th>추천</th>
+            @endif
             <th>작성일자</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($bdata as $bdata)
+          @foreach($bdata as $item)
           <tr>
-            <td>{{ $bdata['headline'] }}</td>
-            <td>{{ $bdata['writer'] }}</td>
-            <td>{{ $bdata['up'] + $bdata['down'] + $bdata['neutral'] }}</td>
-            <td>{{ $bdata['up'] }}</td>
-            <td>{{ $bdata['down'] }}</td>
-            <td>{{ $bdata['neutral'] }}</td>
+            <td>{{ $item['headline'] }}</td>
+            <td>{{ $item['writer'] }}</td>
+            <td>{{ $item['up'] + $item['down'] + $item['neutral'] }}</td>
             <td>
-              <form action="{{ route('voteBoard', $bdata->id) }}" method="POST" class="form-horizontal">
+              <div>찬 {{ $item['up'] }}</div>
+              <div>반 {{ $item['down'] }}</div>
+              <div>중 {{ $item['neutral'] }}</div>
+            </td>
+            @if(Auth::check())
+            <td>
+              <form action="{{ route('voteBoard', $item->id) }}" method="POST" class="form-horizontal">
               {{ csrf_field() }}
               <div class="col-sm-offset-3 col-sm-6">
                 <button type="submit" class="btn btn-default">
@@ -42,7 +45,8 @@
                 </button>
               </div>
             </td>
-            <td>{{ $bdata['created_at'] }}</td>
+            @endif
+            <td>{{ $item['created_at'] }}</td>
           </tr>
           @endforeach
         </tbody>
@@ -50,16 +54,7 @@
       <div class="board_container">
           <a href="{{ URL::route('postBoard') }}">글쓰기</a>
       </div>
-      <div class="button_block"><a href="">1</a></div>
-      <div class="button_block"><a href="">2</a></div>
-      <div class="button_block"><a href="">3</a></div>
-      <div class="button_block"><a href="">4</a></div>
-      <div class="button_block"><a href="">5</a></div>
-      <div class="button_block"><a href="">6</a></div>
-      <div class="button_block"><a href="">7</a></div>
-      <div class="button_block"><a href="">8</a></div>
-      <div class="button_block"><a href="">9</a></div>
-      <div class="button_block"><a href="">10</a></div>
+      {!! $bdata->render() !!}
     </div>
     <div class="board_container">
 

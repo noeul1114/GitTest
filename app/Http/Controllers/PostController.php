@@ -17,11 +17,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = 'a')
+    public function index($id)
     {
       $ma = Board::count();
       $md = Board::max('vote_id');
-      $bdata = Board::where('sort_board', 'like', $id)->get();
+      $bdata = Board::where('sort_board', 'like', $id)->paginate(2);
       $targue = Board::find($md);
 
       $total = ['maxname' => $ma,
@@ -73,10 +73,15 @@ class PostController extends Controller
      */
     public function voteBoard($id)
     {
+        if (Auth::check()) {
         Board::where('id', $id)
                     ->increment('up');
 
         return redirect()->route('boardView');
+      }
+       else {
+        return redirect()->route('boardView');
+      }
     }
 
     /**
