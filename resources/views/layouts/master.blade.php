@@ -20,6 +20,33 @@
             position: absolute;
         }
 
+        .board_box_up {
+            width: 100px;
+            height: 20px;
+            display: block;
+            background-color: red;
+            margin: 3px;
+            margin-left: 30%;
+        }
+
+        .board_box_down {
+            width: 100px;
+            height: 20px;
+            display: block;
+            background-color: blue;
+            margin: 3px;
+            margin-left: 30%;
+        }
+
+        .board_box_neutral {
+            width: 100px;
+            height: 20px;
+            display: block;
+            background-color: gray;
+            margin: 3px;
+            margin-left: 30%;
+        }
+
         .container {
             text-align: center;
             display: box;
