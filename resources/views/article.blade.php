@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="board_container">
-        <div class="title">{{ $targue['headline'] }}</div>
+      <div class="title"><a href="{{ route('articleView',[$targue->sort_board, $targue->id]) }}">{{ $targue['headline'] }}</a></div>
         <div class="content_block"><p>{{ $targue['description'] }}</p></div>
     </div>
 
@@ -25,7 +25,7 @@
         <tbody>
           @foreach($bdata as $item)
           <tr>
-            <td>{{ $item['headline'] }}</td>
+            <td><a href="{{ route('articleView', [$item->sort_board, $item->id]) }}">{{ $item['headline'] }}</a></td>
             <td>{{ $item['writer'] }}</td>
             <td>{{ $item['up'] + $item['down'] + $item['neutral'] }}</td>
             <td>

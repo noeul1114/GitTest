@@ -25,7 +25,8 @@ Route::post('voteComment/{id}', 'TodayCommentController@voteComment')->name('vot
 
 //Route::get('/board/a', 'AboardController@index');
 
-Route::get('/board/{id?}', 'PostController@index')->name('boardView');
+Route::get('/board/{sort_board}', 'PostController@index')->name('boardView');
+Route::get('/board/{sort_board}/{id}', 'PostController@articleView')->name('articleView');
 
 // board view/post/delete...
 Route::get('/postBoard', [
