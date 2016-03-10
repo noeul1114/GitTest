@@ -81,6 +81,14 @@
             margin: 0 1% 0 1%;
         }
 
+        .comment_block {
+            display: inline-block;
+            width: 30%;
+            height: 100px
+            font-size: 25px;
+            margin: 0 1% 0 1%;
+        }
+
         a:visited {
             text-decoration: none;
         }

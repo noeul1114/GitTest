@@ -21,7 +21,7 @@ class PostController extends Controller
     {
       $ma = Board::count();
       $md = Board::max('vote_id');
-      $bdata = Board::where('sort_board', 'like', $sort_board)->paginate(2);
+      $bdata = Board::where('sort_board', 'like', $sort_board)->paginate(5);
       $targue = Board::find($md);
 
       $total = ['maxname' => $ma,
@@ -88,8 +88,9 @@ class PostController extends Controller
     {
       $ma = Board::count();
       $md = Board::max('vote_id');
-      $bdata = Board::where('sort_board', 'like', $sort_board)->paginate(2);
+      $bdata = Board::where('sort_board', 'like', $sort_board)->paginate(5);
       $targue = Board::find($md);
+      $adata = Board::where('id', '=', $id)->first();
 
       $total = ['maxname' => $ma,
                 'maxdescribe' => $md,
@@ -98,7 +99,8 @@ class PostController extends Controller
       //뷰에 전달
       return view('article')->with('total', $total)
                           ->with('bdata', $bdata)
-                          ->with('targue', $targue);
+                          ->with('targue', $targue)
+                          ->with('adata', $adata);
     }
 
     /**

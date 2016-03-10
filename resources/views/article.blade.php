@@ -11,6 +11,55 @@
     </div>
 
     <div class="board_container">
+      <div class="title">{{ $adata['headline'] }}</div>
+        <div class="content_block"><p>{{ $adata['description'] }}</p></div>
+      <div class="">
+        <div class="comment_block">
+          <table class="table table-hover">
+            <thead>
+              <th>제목</th>
+              <th>추천</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>testing</td>
+                <td>testing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="comment_block">
+          <table class="table table-hover">
+            <thead>
+              <th>제목</th>
+              <th>추천</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>testing</td>
+                <td>testing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="comment_block">
+          <table class="table table-hover">
+            <thead>
+              <th>제목</th>
+              <th>추천</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>testing</td>
+                <td>testing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="board_container">
       <table class="table table-hover">
         <thead>
           <tr>

@@ -8,4 +8,9 @@ class Board extends Model
 {
     protected $table = 'boards';
     protected $primaryKey = 'vote_id';
+
+    public function comment()
+    {
+        return $this->hasOne('App\Comment');
+    }
 }
