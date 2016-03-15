@@ -27,6 +27,7 @@
         <tbody>
           @foreach($bdata as $item)
           <tr>
+            <div>
             <td>{{ $item['headline'] }}</td>
             <td>{{ $item['writer'] }}</td>
             <td>{{ $item['up'] + $item['down'] + $item['neutral'] }}</td>
@@ -47,6 +48,14 @@
             </td>
             @endif
             <td>{{ $item['created_at'] }}</td>
+          </div>
+          </tr>
+          <tr>
+            <td>
+              <div class='box_up'></div>
+              <div class='box_down'></div>
+              <div class='box_neutral'></div>
+            </td>
           </tr>
           @endforeach
         </tbody>

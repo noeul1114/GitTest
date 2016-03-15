@@ -20,6 +20,26 @@
             position: absolute;
         }
 
+        .box_up {
+            width: 100%;
+            height: 10px;
+            background-color: red;
+            display: inline-block;;
+        }
+
+        .box_down {
+            width: 100%;
+            height: 10px;
+            background-color: blue;
+            display: inline-block;;
+        }
+
+        .box_neutral {
+            width: 100%;
+            height: 10px;
+            background-color: black;
+            display: inline-block;;
+        }
         .container {
             text-align: center;
             display: box;
