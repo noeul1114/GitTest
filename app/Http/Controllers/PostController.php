@@ -17,11 +17,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = 'a')
+    public function index($sort_board = 'a')
     {
       $ma = Board::count();
       $md = Board::max('vote_id');
-      $bdata = Board::where('sort_board', 'like', $id)->paginate(2);
+      $bdata = Board::where('sort_board', 'like', $sort_board)->paginate(5);
       $targue = Board::find($md);
 
       $total = ['maxname' => $ma,
@@ -82,6 +82,25 @@ class PostController extends Controller
        else {
         return redirect()->route('boardView');
       }
+    }
+
+    public function articleView($sort_board, $id)
+    {
+      $ma = Board::count();
+      $md = Board::max('vote_id');
+      $bdata = Board::where('sort_board', 'like', $sort_board)->paginate(5);
+      $targue = Board::find($md);
+      $adata = Board::where('id', '=', $id)->first();
+
+      $total = ['maxname' => $ma,
+                'maxdescribe' => $md,
+      ];
+
+      //뷰에 전달
+      return view('article')->with('total', $total)
+                          ->with('bdata', $bdata)
+                          ->with('targue', $targue)
+                          ->with('adata', $adata);
     }
 
     /**

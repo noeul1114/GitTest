@@ -20,26 +20,33 @@
             position: absolute;
         }
 
-        .box_up {
-            width: 100%;
-            height: 10px;
+        .board_box_up {
+            width: 100px;
+            height: 20px;
+            display: block;
             background-color: red;
-            display: inline-block;;
+            margin: 3px;
+            margin-left: 30%;
         }
 
-        .box_down {
-            width: 100%;
-            height: 10px;
+        .board_box_down {
+            width: 100px;
+            height: 20px;
+            display: block;
             background-color: blue;
-            display: inline-block;;
+            margin: 3px;
+            margin-left: 30%;
         }
 
-        .box_neutral {
-            width: 100%;
-            height: 10px;
-            background-color: black;
-            display: inline-block;;
+        .board_box_neutral {
+            width: 100px;
+            height: 20px;
+            display: block;
+            background-color: gray;
+            margin: 3px;
+            margin-left: 30%;
         }
+
         .container {
             text-align: center;
             display: box;
@@ -71,6 +78,14 @@
         .button_block {
             display: inline-block;
             font-size: 15px;
+            margin: 0 1% 0 1%;
+        }
+
+        .comment_block {
+            display: inline-block;
+            width: 30%;
+            height: 100px
+            font-size: 25px;
             margin: 0 1% 0 1%;
         }
 

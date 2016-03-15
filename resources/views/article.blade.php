@@ -11,6 +11,55 @@
     </div>
 
     <div class="board_container">
+      <div class="title">{{ $adata['headline'] }}</div>
+        <div class="content_block"><p>{{ $adata['description'] }}</p></div>
+      <div class="">
+        <div class="comment_block">
+          <table class="table table-hover">
+            <thead>
+              <th>제목</th>
+              <th>추천</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>testing</td>
+                <td>testing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="comment_block">
+          <table class="table table-hover">
+            <thead>
+              <th>제목</th>
+              <th>추천</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>testing</td>
+                <td>testing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="comment_block">
+          <table class="table table-hover">
+            <thead>
+              <th>제목</th>
+              <th>추천</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>testing</td>
+                <td>testing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="board_container">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -25,8 +74,6 @@
         <tbody>
           @foreach($bdata as $item)
           <tr>
-            <div>
-            <td>{{ $item['headline'] }}</td>
             <td><a href="{{ route('articleView', [$item->sort_board, $item->id]) }}">{{ $item['headline'] }}</a></td>
             <td>{{ $item['writer'] }}</td>
             <td>{{ $item['up'] + $item['down'] + $item['neutral'] }}</td>
@@ -45,14 +92,6 @@
               </div>
             </td>
             <td>{{ $item['created_at'] }}</td>
-          </div>
-          </tr>
-          <tr>
-            <td>
-              <div class='box_up'></div>
-              <div class='box_down'></div>
-              <div class='box_neutral'></div>
-            </td>
           </tr>
           <td colspan="6">
             <div class="board_box_up"></div>

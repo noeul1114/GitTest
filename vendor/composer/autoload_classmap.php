@@ -6,8 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AboardTableSeeder' => $baseDir . '/database/seeds/AboardTableSeeder.php',
     'BoardTableSeeder' => $baseDir . '/database/seeds/BoardTableSeeder.php',
+    'CommentTableSeeder' => $baseDir . '/database/seeds/CommentTableSeeder.php',
     'CreateBoardTable' => $baseDir . '/database/migrations/2016_02_16_161810_create_board_table.php',
     'CreateCommentTable' => $baseDir . '/database/migrations/2016_02_16_165017_create_comment_table.php',
     'CreateHotargueboardTable' => $baseDir . '/database/migrations/2016_02_16_165625_create_hotargueboard_table.php',
