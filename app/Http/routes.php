@@ -37,7 +37,7 @@ Route::post('postBoard', [
   'as' => 'postBoard',
   'uses' => 'PostController@postBoard'
 ]);
-Route::post('voteBoard/{id}', [
+Route::post('/voteBoard/{sort_board}/{id}', [
   'as' => 'voteBoard',
   'uses' => 'PostController@voteBoard'
 ]);

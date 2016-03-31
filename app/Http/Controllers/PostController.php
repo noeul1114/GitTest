@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Board;
+use App\Comment;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 
@@ -71,16 +72,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function voteBoard($id)
+    public function voteBoard($sort_board, $id)
     {
+
         if (Auth::check()) {
         Board::where('id', $id)
                     ->increment('up');
 
-        return redirect()->route('boardView');
+        return redirect()->route('articleView', [$sort_board, $id] );
       }
        else {
-        return redirect()->route('boardView');
+         //Throw error and redirect to login interface
+        return redirect()->route('login');
       }
     }
 
@@ -91,6 +94,15 @@ class PostController extends Controller
       $bdata = Board::where('sort_board', 'like', $sort_board)->paginate(5);
       $targue = Board::find($md);
       $adata = Board::where('id', '=', $id)->first();
+      $cdataup = Comment::where('board_id', 'like', $id)
+                      ->where('distinction', 'like', '1')
+                      ->get();
+      $cdatadown = Comment::where('board_id', 'like', $id)
+                      ->where('distinction', 'like', '2')
+                      ->get();
+      $cdataneut = Comment::where('board_id', 'like', $id)
+                      ->where('distinction', 'like', '3')
+                      ->get();
 
       $total = ['maxname' => $ma,
                 'maxdescribe' => $md,
@@ -100,7 +112,10 @@ class PostController extends Controller
       return view('article')->with('total', $total)
                           ->with('bdata', $bdata)
                           ->with('targue', $targue)
-                          ->with('adata', $adata);
+                          ->with('adata', $adata)
+                          ->with('cdataup', $cdataup)
+                          ->with('cdatadown', $cdatadown)
+                          ->with('cdataneut', $cdataneut);
     }
 
     /**

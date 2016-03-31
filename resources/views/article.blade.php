@@ -74,7 +74,7 @@
         <tbody>
           @foreach($bdata as $item)
           <tr>
-            <td><a href="{{ route('articleView', [$item->sort_board, $item->id]) }}">{{ $item['headline'] }}</a></td>
+            <td><a href="/board/{{$item->sort_board}}/{{$item->id}}">{{ $item['headline'] }}</a></td>
             <td>{{ $item['writer'] }}</td>
             <td>{{ $item['up'] + $item['down'] + $item['neutral'] }}</td>
             <td>
@@ -83,13 +83,14 @@
               <div>중 {{ $item['neutral'] }}</div>
             </td>
             <td>
-              <form action="{{ route('voteBoard', $item->id) }}" method="POST" class="form-horizontal">
+              <form action="{{ route('voteboard', [$item->sort_board, $item->id]) }}" method="POST" class="form-horizontal">
               {{ csrf_field() }}
               <div class="col-sm-offset-3 col-sm-6">
                 <button type="submit" class="btn btn-default">
                   <i class="fa fa-plus"></i> 추천
                 </button>
               </div>
+            </form>
             </td>
             <td>{{ $item['created_at'] }}</td>
           </tr>
